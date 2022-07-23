@@ -19,7 +19,7 @@
   Activate Services in Jenkins Project
  *****************************************/
 module "enables-google-apis" {
-  source  = "terraform-google-modules/project-factory/google/modules/project_services"
+  source  = "terraform-google-modules/project-factory/google//modules/project_services"
   version = "11.0.0"
 
   project_id = var.project_id
