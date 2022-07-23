@@ -72,7 +72,7 @@ module "jenkins-vpc" {
   Jenkins GKE
  *****************************************/
 module "jenkins-gke" {
-  source                   = "terraform-google-modules/kubernetes-engine/google//modules/beta-public-cluster/"
+  source                   = "terraform-google-modules/kubernetes-engine/google/modules/beta-public-cluster/"
   version                  = "~> 15.0"
   project_id               = module.enables-google-apis.project_id
   name                     = "jenkins"
@@ -94,6 +94,7 @@ module "jenkins-gke" {
       name         = "butler-pool"
       min_count    = 3
       max_count    = 6
+      image_type   = "COS_CONTAINERD"
       auto_upgrade = true
     }
   ]
@@ -187,7 +188,7 @@ resource "helm_release" "jenkins" {
   name       = "jenkins"
   repository = "https://charts.helm.sh/stable"
   chart      = "jenkins"
-  version    = "1.9.18"
+  version    = "4.1.13"
   timeout    = 1200
 
   values = [data.local_file.helm_chart_values.content]
