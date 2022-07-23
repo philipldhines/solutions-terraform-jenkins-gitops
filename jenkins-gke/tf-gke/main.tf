@@ -19,7 +19,7 @@
   Activate Services in Jenkins Project
  *****************************************/
 module "enables-google-apis" {
-  source  = "terraform-google-modules/project-factory/google//modules/project_services"
+  source  = "terraform-google-modules/project-factory/google/modules/project_services"
   version = "11.0.0"
 
   project_id = var.project_id
@@ -94,7 +94,6 @@ module "jenkins-gke" {
       name         = "butler-pool"
       min_count    = 3
       max_count    = 6
-      image_type   = "COS_CONTAINERD"
       auto_upgrade = true
     }
   ]
@@ -188,7 +187,7 @@ resource "helm_release" "jenkins" {
   name       = "jenkins"
   repository = "https://charts.helm.sh/stable"
   chart      = "jenkins"
-  version    = "4.1.13"
+  version    = "1.9.18"
   timeout    = 1200
 
   values = [data.local_file.helm_chart_values.content]
