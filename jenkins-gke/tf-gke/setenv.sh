@@ -14,7 +14,7 @@
 
 
 # Configure project ID and set Github user name and email address
-GITHUB_TOKEN="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"
+GITHUB_TOKEN="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"
 PROJECT_ID="my-terraform-jenkins"
 GITHUB_USER="philipldhines"
 GITHUB_EMAIL="philip.hines@scotlandmail.com"
