@@ -30,4 +30,22 @@ gcloud config set project $PROJECT_ID
 #gsutil mb gs://jenkins-terraform-gitops-tfstate
 #gsutil versioning set on gs://jenkins-terraform-gitops-tfstate
 
+#cloud services enable compute.googleapis.com --project $PROJECT_ID
+
+
+#Enabling an API
+
+#Enter the following to display the project IDs for your Google Cloud projects:
+#gcloud projects list
+
+#Using the applicable project ID from the previous step, set the default project to the one in which you want to enable the API:
+#gcloud config set project YOUR_PROJECT_ID
+
+
+#Get a list of services that you can enable in your project
+#gcloud services list --available
+
+#Using the applicable service name from the previous step above, enable the service
+#gcloud services enable SERVICE_NAME
+
 
